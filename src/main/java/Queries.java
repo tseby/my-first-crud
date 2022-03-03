@@ -9,13 +9,38 @@ public abstract class Queries {
     private String UniversityRank;
 
     //create
-    public abstract String insert();
+    public abstract String insert_query();
     //read
     public abstract String read_query();
     //Updtate
     public abstract String correct_query();
     //Delete
     public abstract String delete_query();
+
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public String getDepartment() {return Department;}
+
+    public String getStudent_ID() {return Student_ID;}
+
+    public String getFirst_Name() {
+        return First_Name;
+    }
+
+    public String getLast_Name() {
+        return Last_Name;
+    }
+
+    public String getPassOutYear() {
+        return PassOutYear;
+    }
+
+    public String getUniversityRank() {
+        return UniversityRank;
+    }
 
     public void setTableName(String tableName) {
         this.tableName = tableName;

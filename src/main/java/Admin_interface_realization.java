@@ -27,27 +27,27 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     @Override
     public int Create() {
         System.out.print("Enter SQL table name: ");
-        //set
-
+        setTableName(sc.nextLine());
+        System.out.print("Enter Department name: ");
+        setDepartment(sc.nextLine());
+        System.out.print("Enter Student_ID: ");
+        setStudent_ID(sc.nextLine());
+        System.out.print("Enter student's first name: ");
+        setFirst_Name(sc.nextLine());
+        System.out.print("Enter student's last name: ");
+        setLast_Name(sc.nextLine());
+        System.out.print("Enter student's pass-out year: ");
+        setPassOutYear(sc.nextLine());
+        System.out.print("Enter student's university rank: ");
+        setUniversityRank(sc.nextLine());
+StringBuilder query_builder = new StringBuilder();
+        String pass_create_query = String.format("INSERT INTO %s VALUES (%");
+               // "INSERT INTO "+ getTableName()+" VALUES " + "("+getStudent_ID()+getDepartment()+getFirst_Name()+getLast_Name()+getPassOutYear() + getUniversityRank();
         return 0;
     }
-
-    @Override
-    public int Update() {
-        System.out.println("Updating");
-        return 0;
-    }
-
-    @Override
-    public int Delete() {
-        System.out.println("Deleting");
-        return 0;
-    }
-
     @Override
     public int Read() {
         try {
-
             String pass_read_query = read_query();
             ResultSet result = DB_connection.pass_statement.executeQuery(pass_read_query);
             while (result.next()) {
@@ -64,7 +64,21 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public String insert() {
+    public int Update() {
+        System.out.println("Updating");
+        return 0;
+    }
+
+    @Override
+    public int Delete() {
+        System.out.println("Deleting");
+        return 0;
+    }
+
+
+
+    @Override
+    public String insert_query() {
         return null;
     }
 

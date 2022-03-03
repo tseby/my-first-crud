@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class DB_connection extends Queries {
+public class DB_connection {
     public static Statement pass_statement;
 
     public static Statement Connect_to_database() throws SQLException {

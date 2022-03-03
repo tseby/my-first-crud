@@ -2,9 +2,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Admin_interface_realization implements Admin_interface {
+public class Admin_interface_realization extends Queries implements Admin_interface {
     final private Scanner sc = new Scanner(System.in);
-    static Queries queriy = new Queries();
+
     @Override
     public String Welcome_statment() {
 
@@ -26,6 +26,8 @@ public class Admin_interface_realization implements Admin_interface {
 
     @Override
     public int Create() {
+        System.out.print("Enter SQL table name: ");
+        //set
 
         return 0;
     }
@@ -45,7 +47,8 @@ public class Admin_interface_realization implements Admin_interface {
     @Override
     public int Read() {
         try {
-            String pass_read_query = queriy.read_all_query();
+
+            String pass_read_query = read_query();
             ResultSet result = DB_connection.pass_statement.executeQuery(pass_read_query);
             while (result.next()) {
                 String UniveristyData = "";
@@ -58,5 +61,25 @@ public class Admin_interface_realization implements Admin_interface {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public String insert() {
+        return null;
+    }
+
+    @Override
+    public String read_query() {
+        return "select * from EngineeringStudents";
+    }
+
+    @Override
+    public String correct_query() {
+        return null;
+    }
+
+    @Override
+    public String delete_query() {
+        return null;
     }
 }

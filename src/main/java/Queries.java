@@ -1,4 +1,4 @@
-public class Queries {
+public abstract class Queries {
 
     private String tableName;
     private String Department;
@@ -8,26 +8,15 @@ public class Queries {
     private String PassOutYear;
     private String UniversityRank;
 
-
-
     //create
-    public String insert(){
-        return "INSERT INTO EngineeringStudents";
-    }
+    public abstract String insert();
     //read
-    public String read_all_query(){
-        return "select * from EngineeringStudents";
-    }
+    public abstract String read_query();
     //Updtate
-    public String correct_query(){
-
-        return "";
-    }
+    public abstract String correct_query();
     //Delete
-    public String delete_query(){
+    public abstract String delete_query();
 
-        return"";
-    }
     public void setTableName(String tableName) {
         this.tableName = tableName;
     }

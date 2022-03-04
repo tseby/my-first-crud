@@ -4,5 +4,4 @@ public interface Admin_interface {
     public int Read();
     public int Update();
     public int Delete();
-
 }

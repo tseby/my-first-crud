@@ -8,9 +8,9 @@ public abstract class Queries {
     private String PassOutYear;
     private String UniversityRank;
 
-    //create
+    //Create
     public abstract String insert_query();
-    //read
+    //Read
     public abstract String read_query();
     //Updtate
     public abstract String correct_query();

@@ -26,7 +26,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
 
     @Override
     public int Create() {
-        System.out.print("Enter SQL table name: ");
+        System.out.print("Enter SQL table name (EngineeringStudents): ");
         setTableName(sc.nextLine());
         System.out.print("Enter Department name: ");
         setDepartment(sc.nextLine());
@@ -40,11 +40,20 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         setPassOutYear(sc.nextLine());
         System.out.print("Enter student's university rank: ");
         setUniversityRank(sc.nextLine());
-StringBuilder query_builder = new StringBuilder();
-        String pass_create_query = String.format("INSERT INTO %s VALUES (%");
-               // "INSERT INTO "+ getTableName()+" VALUES " + "("+getStudent_ID()+getDepartment()+getFirst_Name()+getLast_Name()+getPassOutYear() + getUniversityRank();
+        StringBuilder query_builder = new StringBuilder();
+//INSERT INTO EngineeringStudents VALUE (10215, 'CSE', 'Rajath', 'Kumar', 2019, 134);
+        String pass_create_query = String.format("INSERT INTO %s VALUES (%s, '%s', '%s', '%s', '%s', '%s');", getTableName(), getStudent_ID(), getDepartment(), getFirst_Name(), getLast_Name(), getPassOutYear(), getUniversityRank());
+        try {
+            int result = DB_connection.pass_statement.executeUpdate(pass_create_query);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Welcome_statment();
         return 0;
     }
+
     @Override
     public int Read() {
         try {
@@ -53,13 +62,14 @@ StringBuilder query_builder = new StringBuilder();
             while (result.next()) {
                 String UniveristyData = "";
                 for (int i = 1; i <= 6; i++) {
-                    UniveristyData += result.getString(i) + ":";
+                    UniveristyData += result.getString(i) + ";";
                 }
                 System.out.println(UniveristyData);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Welcome_statment();
         return 0;
     }
 
@@ -76,9 +86,9 @@ StringBuilder query_builder = new StringBuilder();
     }
 
 
-
     @Override
     public String insert_query() {
+        String query = "";
         return null;
     }
 

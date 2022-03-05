@@ -14,10 +14,9 @@ public class DB_connection {
             e.printStackTrace();
         }
             Connection con = DriverManager.getConnection(url, uname, password);
-            Statement statement = con.createStatement();
+            Statement statement = con.createStatement(); // sout
 
         return pass_statement = statement;
     }
-
 
 }

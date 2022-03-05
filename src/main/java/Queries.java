@@ -14,9 +14,9 @@ public abstract class Queries {
     //Read
     public abstract String read_query();
     //Updtate
-    public abstract String correct_query();
+    public abstract String correct_query(String table_name, String column, String pointer);
     //Delete
-    public abstract String delete_query(String table_name, String column_name, String delete_target);
+    public abstract String delete_query();
     //Deleting functionality
     public abstract String delete_all_rows_query();
     public abstract String delete_specific_row_query();
@@ -56,6 +56,7 @@ public abstract class Queries {
     }
 
     public void setStudent_ID(int student_ID) {
+
         Student_ID = student_ID;
     }
 

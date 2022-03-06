@@ -14,7 +14,7 @@ public abstract class Queries {
     //Read
     public abstract String read_query();
     //Updtate
-    public abstract String correct_query(String table_name, String column, String pointer);
+    public abstract String correct_query(String table_name, String column, String new_value ,String pointer, String pointer_value);
     //Delete
     public abstract String delete_query();
     //Deleting functionality

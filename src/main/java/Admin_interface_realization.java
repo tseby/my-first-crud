@@ -1,3 +1,6 @@
+import Abstract_classes.Queries;
+import Connection.DB_connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;

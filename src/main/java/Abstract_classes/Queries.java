@@ -1,3 +1,5 @@
+package Abstract_classes;
+
 public abstract class Queries {
 
     private String tableName;

@@ -27,6 +27,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/update" -> Update();
             case "/delete" -> Delete();
         }
+
         return "";
     }
 

@@ -1,5 +1,18 @@
 package Servlets;
 
-public class MainServlet extends HttpServlet{
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
+public class MainServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //super.doGet(req, resp);
+        PrintWriter printwriter = resp.getWriter();
+        printwriter.write("hello world");
+    }
 }

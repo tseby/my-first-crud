@@ -1,2 +1,2 @@
 # myFirstCrud
-Understanding JDBC, Collections, Lambdas
+Understanding JDBC, Collections, Servers, Servlets, improving IDE understanding

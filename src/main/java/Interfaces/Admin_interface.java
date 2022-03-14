@@ -1,3 +1,5 @@
+package Interfaces;
+
 public interface Admin_interface {
     public String Welcome_statment();
     public int Create();

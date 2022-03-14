@@ -1,6 +1,6 @@
 # myFirstCrud
 Things I have already IMPLEMENTED in this project:
-1)JDBC
+1)JDBC\n
 2)Wrapper classes
 3)Basic SQL queries
 4)Basic OOP

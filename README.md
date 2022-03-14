@@ -1,4 +1,5 @@
 # myFirstCrud
+Project to deepen my understandings in java and help me get my first job as a java back-end dev!</br>
 Things I have already IMPLEMENTED in this project:</br>
 1)JDBC</br>
 2)Wrapper classes</br>

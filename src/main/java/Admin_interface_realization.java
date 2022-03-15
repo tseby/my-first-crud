@@ -10,7 +10,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     final private Scanner sc = new Scanner(System.in);
     private String delete_query_decider;
     private String pass_delete_query;
-    private Actions_history_realization history;
+    private Actions_history_realization history = new Actions_history_realization();
 
     @Override
     public String Welcome_statment() {
@@ -22,7 +22,8 @@ public class Admin_interface_realization extends Queries implements Admin_interf
                 /create
                 /update
                 /read
-                /delete""");
+                /delete
+                /work_with_history""");
         System.out.print("Enter an option:");
         String chosen_action = sc.nextLine();
         switch (chosen_action) {
@@ -30,6 +31,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/read" -> show_table();
             case "/update" -> update_values();
             case "/delete" -> delete();
+            case "/work_with_history" -> work_with_history();
         }
         history.add_into_history("Returned to main menu");
         return "";
@@ -133,7 +135,20 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         history.add_into_history("Deleted a value from a table");
         return "";
     }
-//INSERT INTO EngineeringStudents VALUE (10215, 'CSE', 'Rajath', 'Kumar', 2019, 134);
+
+    @Override
+    public String work_with_history() {
+        System.out.print("Let's work with history of actions, here is what you can do:\n" +
+                "1)Read past actions;\n" +
+                "2)Clean history of past actions.");
+        switch (Integer.parseInt(sc.nextLine())) {
+            case 1 -> history.read_history();
+            case 2 -> history.clean_history();
+        }
+        return null;
+    }
+
+    //INSERT INTO EngineeringStudents VALUE (10215, 'CSE', 'Rajath', 'Kumar', 2019, 134);
     @Override
     public String insert_query(String table_name, int student_id, String department, String first_name, String last_name, int passout_year, int uni_rank) {
         return String.format("INSERT INTO %s VALUES (%s, '%s', '%s', '%s', '%s', '%s');", table_name, student_id, department, first_name, last_name, passout_year, uni_rank);

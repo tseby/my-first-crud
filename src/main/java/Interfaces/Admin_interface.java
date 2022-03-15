@@ -6,4 +6,5 @@ public interface Admin_interface {
     public String show_table();
     public String update_values();
     public String delete();
+    public String work_with_history();
 }

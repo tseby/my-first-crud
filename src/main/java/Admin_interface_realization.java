@@ -10,6 +10,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     final private Scanner sc = new Scanner(System.in);
     private String delete_query_decider;
     private String pass_delete_query;
+    private Actions_history_realization history;
 
     @Override
     public String Welcome_statment() {
@@ -33,7 +34,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public int Create() {
+    public int add_user() {
         System.out.print("Enter SQL table name (EngineeringStudents): ");
         setTableName(sc.nextLine());
         System.out.print("Enter Department name: ");
@@ -60,7 +61,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public int Read() {
+    public int show_table() {
         try {
             String pass_read_query = read_query();
             ResultSet result = DB_connection.pass_statement.executeQuery(pass_read_query);
@@ -79,22 +80,22 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public int Update() {
+    public int update_values() {
         System.out.print("Let us update the data in your data base!\n" +
                 "Specify a table you would like to work with: ");
         String table_name = sc.nextLine();
         System.out.print("Specify the columns you want to make the changes:");
         String columns_to_be_updated = sc.nextLine();
         System.out.print("Here is how your query looks, now enter new values for the chosen columns.\n" +
-                "UPDATE "+table_name+" SET "+columns_to_be_updated+"='");
+                "UPDATE " + table_name + " SET " + columns_to_be_updated + "='");
         String new_culumn_value = sc.nextLine();
         System.out.print("Now specify the pointer (primary key): ");
         String pointer = sc.nextLine();
         System.out.print("Here is how your query looks.Now enter pointer value.\n" +
-                "UPDATE "+table_name+" SET "+columns_to_be_updated+"='"+new_culumn_value+"' WHERE "+pointer+"='");
+                "UPDATE " + table_name + " SET " + columns_to_be_updated + "='" + new_culumn_value + "' WHERE " + pointer + "='");
         String pointer_value = sc.nextLine();
         try {
-            DB_connection.pass_statement.executeUpdate(correct_query(table_name, columns_to_be_updated,new_culumn_value, pointer,pointer_value));
+            DB_connection.pass_statement.executeUpdate(correct_query(table_name, columns_to_be_updated, new_culumn_value, pointer, pointer_value));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -103,7 +104,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public int Delete() {
+    public int delete() {
         System.out.print("Lets delete some data! Choose what you want to delete (enter a number):\n" +
                 "   1) Delete all rows in a table;\n" +
                 "   2) Delete a specific row in a table;\n");
@@ -138,9 +139,9 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     }
 
     @Override
-    public String correct_query(String table_name, String column, String new_value ,String pointer, String pointer_value) {
-        String result = String.format("UPDATE %s SET %s = '%s' WHERE %s ='%s';",table_name,column,new_value,pointer,pointer_value);
-        System.out.println("Ok here is what you are bout to update: "+result);
+    public String correct_query(String table_name, String column, String new_value, String pointer, String pointer_value) {
+        String result = String.format("UPDATE %s SET %s = '%s' WHERE %s ='%s';", table_name, column, new_value, pointer, pointer_value);
+        System.out.println("Ok here is what you are bout to update: " + result);
         return result;
     }
 
@@ -155,7 +156,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         String table_to_delete = sc.nextLine();
         String delete_all_rows_query = String.format("DELETE FROM %s", table_to_delete);
         delete_query_decider = "remove_all_rows";
-        System.out.println("All rows from "+table_to_delete+" deleted!");
+        System.out.println("All rows from " + table_to_delete + " deleted!");
         return pass_delete_query = delete_all_rows_query;
     }
 

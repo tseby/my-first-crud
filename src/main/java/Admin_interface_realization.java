@@ -24,10 +24,10 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         System.out.print("Enter an option:");
         String chosen_action = sc.nextLine();
         switch (chosen_action) {
-            case "/create" -> Create();
-            case "/read" -> Read();
-            case "/update" -> Update();
-            case "/delete" -> Delete();
+            case "/create" -> add_user();
+            case "/read" -> show_table();
+            case "/update" -> update_values();
+            case "/delete" -> delete();
         }
 
         return "";

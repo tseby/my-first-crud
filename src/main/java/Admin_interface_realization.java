@@ -16,11 +16,13 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     public String Welcome_statment() {
         delete_query_decider = "";
         pass_delete_query = "";
-        System.out.println("Wow such admin. Choose an action to execute with your CRUD service.\nHere is what you can do:\n" +
-                "/create\n" +
-                "/update\n" +
-                "/read\n" +
-                "/delete");
+        System.out.println("""
+                Wow such admin. Choose an action to execute with your CRUD service.
+                Here is what you can do:
+                /create
+                /update
+                /read
+                /delete""");
         System.out.print("Enter an option:");
         String chosen_action = sc.nextLine();
         switch (chosen_action) {
@@ -29,12 +31,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/update" -> update_values();
             case "/delete" -> delete();
         }
-
+        history.add_into_history("Returned to main menu");
         return "";
     }
 
     @Override
-    public int add_user() {
+    public String add_user() {
         System.out.print("Enter SQL table name (EngineeringStudents): ");
         setTableName(sc.nextLine());
         System.out.print("Enter Department name: ");
@@ -57,11 +59,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        return 0;
+        history.add_into_history("Added a user");
+        return "";
     }
 
     @Override
-    public int show_table() {
+    public String show_table() {
         try {
             String pass_read_query = read_query();
             ResultSet result = DB_connection.pass_statement.executeQuery(pass_read_query);
@@ -76,11 +79,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        return 0;
+        history.add_into_history("Read a table");
+        return "";
     }
 
     @Override
-    public int update_values() {
+    public String update_values() {
         System.out.print("Let us update the data in your data base!\n" +
                 "Specify a table you would like to work with: ");
         String table_name = sc.nextLine();
@@ -100,14 +104,17 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        return 0;
+        history.add_into_history("Updated a value in a table");
+        return "";
     }
 
     @Override
-    public int delete() {
-        System.out.print("Lets delete some data! Choose what you want to delete (enter a number):\n" +
-                "   1) Delete all rows in a table;\n" +
-                "   2) Delete a specific row in a table;\n");
+    public String delete() {
+        System.out.print("""
+                Lets delete some data! Choose what you want to delete (enter a number):
+                   1) Delete all rows in a table;
+                   2) Delete a specific row in a table;
+                """);
         setDeleteOptions(Integer.parseInt(sc.nextLine()));
         switch (getDeleteOptions()) {
             case 1 -> delete_all_rows_query();
@@ -123,10 +130,9 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        return 0;
+        history.add_into_history("Deleted a value from a table");
+        return "";
     }
-
-    //-----------------------------------------+
 //INSERT INTO EngineeringStudents VALUE (10215, 'CSE', 'Rajath', 'Kumar', 2019, 134);
     @Override
     public String insert_query(String table_name, int student_id, String department, String first_name, String last_name, int passout_year, int uni_rank) {

@@ -1,14 +1,25 @@
-import org.junit.Before;
+
+import Connection.DB_connection;
+import org.junit.jupiter.api.*;
 import org.testng.annotations.Test;
 
-public class Actions_history_realizationTests {
+import java.sql.SQLException;
 
-    //@Before
-    //public
+public class Actions_history_realizationTests {
+    DB_connection connection;
+
+    @BeforeEach
+    public void and_what_not() {
+    }
+
+
+    private static int meme = 100;
 
     @Test
-    public void ReturnTrueWhenConnectedToDataBase(){
-
+    @DisplayName("Test to see if connection to database was successful")
+    public void ReturnTrueWhenConnectedToDataBase() throws SQLException {
+        DB_connection.Connect_to_database();
+        Assertions.assertEquals(1, connection.getJunit_testing_integer());
     }
 
 

@@ -34,7 +34,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/work_with_history" -> work_with_history();
         }
         history.add_into_history("Returned to main menu");
-        return "";
+        return "true";
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         }
         Welcome_statment();
         history.add_into_history("Added a user");
-        return "";
+        return "true";
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         }
         Welcome_statment();
         history.add_into_history("Read a table");
-        return "";
+        return "true";
     }
 
     @Override
@@ -107,7 +107,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         }
         Welcome_statment();
         history.add_into_history("Updated a value in a table");
-        return "";
+        return "true";
     }
 
     @Override
@@ -133,7 +133,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
         }
         Welcome_statment();
         history.add_into_history("Deleted a value from a table");
-        return "";
+        return "true";
     }
 
     @Override
@@ -145,7 +145,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case 1 -> history.read_history();
             case 2 -> history.clean_history();
         }
-        return null;
+        return "true";
     }
 
     //INSERT INTO EngineeringStudents VALUE (10215, 'CSE', 'Rajath', 'Kumar', 2019, 134);

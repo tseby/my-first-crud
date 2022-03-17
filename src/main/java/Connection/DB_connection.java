@@ -8,6 +8,8 @@ public class DB_connection {
     private static final String NAME = "root";
     private static final String PASSWORD = "yjdtqibqjhajuhfabxtcrbqckjdfhm,jktt100000ckjd!";
 private static int junit_testing_integer = 0;
+    
+//     Нашел инфу по подключениям мсклБД, для этого есть специальный модуль, вот подробнее: https://goo.su/yDw3xu
 
 
 

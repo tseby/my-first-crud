@@ -1,5 +1,6 @@
 import Abstract_classes.Queries;
 import Connection.DB_connection;
+import Interfaces.Actions_history;
 import Interfaces.Admin_interface;
 
 import java.sql.ResultSet;
@@ -10,7 +11,6 @@ public class Admin_interface_realization extends Queries implements Admin_interf
     final private Scanner sc = new Scanner(System.in);
     private String delete_query_decider;
     private String pass_delete_query;
-    private Actions_history_realization history = new Actions_history_realization();
 
     @Override
     public String Welcome_statment() {
@@ -33,7 +33,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/delete" -> delete();
             case "/work_with_history" -> work_with_history();
         }
-        history.add_into_history("Returned to main menu");
+        Actions_history.add_into_history("Returned to main menu");
         return "true";
     }
 
@@ -61,7 +61,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Added a user");
+        Actions_history.add_into_history("Added a user");
         return "true";
     }
 
@@ -81,7 +81,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Read a table");
+        Actions_history.add_into_history("Read a table");
         return "true";
     }
 
@@ -106,7 +106,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Updated a value in a table");
+        Actions_history.add_into_history("Updated a value in a table");
         return "true";
     }
 
@@ -132,7 +132,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Deleted a value from a table");
+        Actions_history.add_into_history("Deleted a value from a table");
         return "true";
     }
 
@@ -142,8 +142,8 @@ public class Admin_interface_realization extends Queries implements Admin_interf
                 "1)Read past actions;\n" +
                 "2)Clean history of past actions.");
         switch (Integer.parseInt(sc.nextLine())) {
-            case 1 -> history.read_history();
-            case 2 -> history.clean_history();
+            case 1 -> Actions_history.read_history();
+            case 2 -> Actions_history.clean_history();
         }
         return "true";
     }

@@ -3,7 +3,7 @@ import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
 
-public class Actions_history_realizationTests {
+public class Admin_interface_realization_test {
     Admin_interface_realization admin_interface_realization = new Admin_interface_realization();
     @BeforeEach
     @DisplayName("Create an instance of Admin_interface_realization for each CRUD related test")

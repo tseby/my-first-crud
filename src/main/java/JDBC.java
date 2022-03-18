@@ -1,5 +1,6 @@
 import java.sql.*;
 import Connection.DB_connection;
+import Interface_realizations.Admin_interface_realization;
 
 public class JDBC extends Admin_interface_realization {
     public static void main(String[] args) throws SQLException {

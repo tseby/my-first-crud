@@ -1,4 +1,5 @@
 import Connection.DB_connection;
+import Interface_realizations.Admin_interface_realization;
 import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
@@ -6,7 +7,7 @@ import java.sql.SQLException;
 public class Admin_interface_realization_test {
     Admin_interface_realization admin_interface_realization = new Admin_interface_realization();
     @BeforeEach
-    @DisplayName("Create an instance of Admin_interface_realization for each CRUD related test")
+    @DisplayName("Create an instance of Interface_realizations.Admin_interface_realization for each CRUD related test")
     public void CreateAnInstanceOfAdmin_interface_realization() {
 //to be continued
     }

@@ -2,7 +2,6 @@ package Interface_realizations;
 
 import Abstract_classes.Queries;
 import Connection.DB_connection;
-import Interfaces.Actions_history;
 import Interfaces.Admin_interface;
 
 import java.sql.ResultSet;
@@ -17,6 +16,7 @@ public class Admin_interface_realization extends Queries implements Admin_interf
 
     @Override
     public String Welcome_statment() {
+        history.add_into_history("Returned to main menu");
         delete_query_decider = "";
         pass_delete_query = "";
         System.out.println("""
@@ -36,12 +36,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             case "/delete" -> delete();
             case "/work_with_history" -> work_with_history();
         }
-        history.add_into_history("Returned to main menu");
         return "true";
     }
 
     @Override
     public String add_user() {
+        history.add_into_history("Added a user");
         System.out.print("Enter SQL table name (EngineeringStudents): ");
         setTableName(sc.nextLine());
         System.out.print("Enter Department name: ");
@@ -64,12 +64,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Added a user");
         return "true";
     }
 
     @Override
     public String show_table() {
+        history.add_into_history("Read a table");
         try {
             String pass_read_query = read_query();
             ResultSet result = DB_connection.pass_statement.executeQuery(pass_read_query);
@@ -84,12 +84,13 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Read a table");
+
         return "true";
     }
 
     @Override
     public String update_values() {
+        history.add_into_history("Updated a value in a table");
         System.out.print("Let us update the data in your data base!\n" +
                 "Specify a table you would like to work with: ");
         String table_name = sc.nextLine();
@@ -109,12 +110,12 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Updated a value in a table");
         return "true";
     }
 
     @Override
     public String delete() {
+        history.add_into_history("Deleted a value from a table");
         System.out.print("""
                 Lets delete some data! Choose what you want to delete (enter a number):
                    1) Delete all rows in a table;
@@ -135,15 +136,16 @@ public class Admin_interface_realization extends Queries implements Admin_interf
             e.printStackTrace();
         }
         Welcome_statment();
-        history.add_into_history("Deleted a value from a table");
         return "true";
     }
 
     @Override
     public String work_with_history() {
+        history.add_into_history("History Checkup");
         System.out.print("Let's work with history of actions, here is what you can do:\n" +
                 "1)Read past actions;\n" +
-                "2)Clean history of past actions.");
+                "2)Clean history of past actions;" +
+                "Your choice:");
         switch (Integer.parseInt(sc.nextLine())) {
             case 1 -> history.read_history();
             case 2 -> history.clean_history();

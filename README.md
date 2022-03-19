@@ -8,5 +8,5 @@ Things I have already IMPLEMENTED in this project:</br>
 5)Basic iterations, switch statements, "if,else"</br>
 6)Maven as a builder and dependency manager</br>
 7)String.fomat</br>
-To do: add history of actions as ArrayList</br>
+8)History of actions as ArrayList</br>
 To do: add JUnit test
